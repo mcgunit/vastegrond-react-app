@@ -24,8 +24,30 @@
   color: white;
 }
 
+.app-container{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 100px auto;
+  grid-template-areas:
+  "header"
+  "content"
+  "footer";
+  height: 100vh;
+  width: 100vw;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.footer { 
+  grid-area: footer;
+  width: 100vw !important;
+}
+
+.header { 
+  grid-area: header;
+  width: 100vw !important;
 }
 
 @keyframes App-logo-spin {
