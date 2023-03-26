@@ -2,19 +2,24 @@ import SETTINGS from "./settings";
 
 const useSongs = () => {
     const getAllSongs = async () => {
-        fetch(
-            `${SETTINGS.API_URL}songs/`,
-            {
-                method: "GET",
-            }
-        )
-        //.then(result => result.json())
-        .then((songs) => {
-            console.log("Songs: ", songs);
+        return new Promise((resolve, reject) => {
+            fetch(
+                `${SETTINGS.API_URL}songs/getsongs`,
+                {
+                    method: "GET"
+                }
+            )
+            .then(result => result.json())
+            .then((songs) => {
+                //console.log("Songs: ", songs);
+                resolve(songs);
+            })
+            .catch((error) => {
+                console.error("Error at fetching songs: ", error);
+                reject(error);
+            })
         })
-        .catch((error) => {
-            console.error("Error at fetching songs: ", error);
-        })
+        
     };
   
   
