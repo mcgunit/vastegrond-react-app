@@ -11,7 +11,6 @@ const useSongs = () => {
             )
             .then(result => result.json())
             .then((songs) => {
-                //console.log("Songs: ", songs);
                 resolve(songs);
             })
             .catch((error) => {

@@ -6,16 +6,17 @@ import useSongs from "../services/useSongs";
 const AppContext = React.createContext({});
 
 const initialApp = {
-  songs: []
+  songs: [],
+  selectedSong: ""
 };
 
 
 function reducer(APP, action) {
   switch (action.type) {
     case "updateSongsList":
-        let songsList = action.payload;
-        console.log("Songs List in dispatch: ", songsList);
       return {...APP, songs: action.payload}
+    case "setSelectedSong":
+        return {...APP, selectedSong: action.payload}
     default:
       console.log("APP context action unknown", action);
       throw new Error();
@@ -32,15 +33,15 @@ const AppProvider = props => {
     if(isS){
       getAllSongs()
       .then((songs) => {
-        console.log("Songs: ", songs);
         asyncDispatch({type: "updateSongsList", payload: songs});
+      })
+      .catch((err) => {
+        console.error(err);
       });
-      
-      
-
     }
     return () => isS = false;
-  }, [])
+  }, []);
+
 
  
   // ******************************************************
@@ -51,6 +52,10 @@ const AppProvider = props => {
   const asyncDispatch = useCallback(async action => {
     switch (action.type) {
       case "updateSongsList": {
+        dispatch(action);
+        break;
+      }
+      case "setSelectedSong":{
         dispatch(action);
         break;
       }
