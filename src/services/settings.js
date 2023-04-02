@@ -4,12 +4,12 @@ const port = window.location.port;
 let loc = `${proto}//${host}`;
 let BASIC_URL = loc;
 //development
-if (port === "3000" || port === "3001") {
+if (port === "3000" || port === "3001" || port === "8080") {
   loc = `${proto}//${host}`;
   BASIC_URL = `${proto}//${host}:${port}`
 }
 
-const API_URL = `${loc}/api/`;
+const API_URL = `${BASIC_URL}/api/`;
 
 export default {
   BASIC_URL,
