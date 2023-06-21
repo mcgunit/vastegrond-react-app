@@ -5,8 +5,8 @@ const Header = props => {
 
 
   return (
-    <header style={{backgroundColor: "#2196F3", color: "white", zIndex: 2}} className="header">
-      {"Vaste Grond"}
+    <header style={{textAlign: "center", backgroundColor: "#2196F3", color: "white", zIndex: 2}} className="header">
+      {"Vaste Grond - Music Lyrics"}
     </header>
   );
 };
