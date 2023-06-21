@@ -33,13 +33,13 @@ const SongsList = () => {
 
 
     const handleSongSelected = (e,name) => {
-        console.log(e)
-        console.log(name)
+        // console.log(e)
+        // console.log(name)
         dispatch({type: "setSelectedSong", payload: name})
+        dispatch({type: "showSonglist", payload: false })
     }
 
     return (
-
 
         <List component="nav" aria-label="main mailbox folders">
             {songs.map(song => {
@@ -47,6 +47,7 @@ const SongsList = () => {
                     <ListItemButton
                     // selected={selectedIndex === 0}
                     onClick={(event) => handleSongSelected(event, song.name)}
+                    key={song.name}
                   >
                     <ListItemIcon>
                       <LyricsIcon />

@@ -7,7 +7,8 @@ const AppContext = React.createContext({});
 
 const initialApp = {
   songs: [],
-  selectedSong: ""
+  selectedSong: "",
+  showSonglist: true
 };
 
 
@@ -17,6 +18,8 @@ function reducer(APP, action) {
       return {...APP, songs: action.payload}
     case "setSelectedSong":
         return {...APP, selectedSong: action.payload}
+    case "showSonglist":
+        return {...APP, showSonglist: action.payload}
     default:
       console.log("APP context action unknown", action);
       throw new Error();
@@ -56,6 +59,10 @@ const AppProvider = props => {
         break;
       }
       case "setSelectedSong":{
+        dispatch(action);
+        break;
+      }
+      case "showSonglist":{
         dispatch(action);
         break;
       }
