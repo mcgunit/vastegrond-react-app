@@ -19,9 +19,9 @@ const Main = () => {
                         <div>
                             <SongsList />
                         </div>
-                        <div>
+                        {/* <div>
                             <SongText />
-                        </div>
+                        </div> */}
                         
                     </SplitPane>
                 </div>
