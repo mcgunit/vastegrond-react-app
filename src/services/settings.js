@@ -6,7 +6,8 @@ let BASIC_URL = loc;
 //development
 if (port === "3000" || port === "3001" || port === "8080") {
   loc = `${proto}//${host}`;
-  BASIC_URL = `${proto}//${host}:${port}`
+  //BASIC_URL = `${proto}//${host}:${port}`
+  BASIC_URL = `${proto}//${host}`
 }
 
 const API_URL = `${BASIC_URL}/api/`;
